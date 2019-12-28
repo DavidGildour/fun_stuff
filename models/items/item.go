@@ -11,9 +11,9 @@ var Rarity = [5]string{
 
 type Item struct {
 	Rarity string
-	Name string
-	Dmg int64
-	Armor int64
+	Name   string
+	Dmg    int64
+	Armor  int64
 }
 
 func (i Item) String() string {

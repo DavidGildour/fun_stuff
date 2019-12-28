@@ -10,10 +10,10 @@ func Warrior(name string) Character {
 		_adj:      "mighty",
 		_type:     "warrior",
 		_deity:    "almighty Volcatosh",
-		Name:      strings.Title(name),
-		Hp:        100,
-		BaseDmg:   5,
-		BaseArmor: 1,
-		Equipment: []items.Item{},
+		name:      strings.Title(name),
+		hp:        100,
+		baseDmg:   5,
+		baseArmor: 1,
+		equipment: []items.Item{},
 	}
 }

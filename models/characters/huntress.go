@@ -10,10 +10,10 @@ func Huntress(name string) Character {
 		_adj:      "swift",
 		_type:     "huntress",
 		_deity:    "blessed Angaram",
-		Name:      strings.Title(name),
-		Hp:        80,
-		BaseDmg:   7,
-		BaseArmor: 0,
-		Equipment: []items.Item{},
+		name:      strings.Title(name),
+		hp:        80,
+		baseDmg:   7,
+		baseArmor: 0,
+		equipment: []items.Item{},
 	}
 }

@@ -2,10 +2,10 @@ package monsters
 
 type (
 	Monster struct {
-		Name string
-		Hp int64
+		Name  string
+		Hp    int64
 		Armor int64
-		Dmg int64
+		Dmg   int64
 	}
 )
 
@@ -24,10 +24,9 @@ var Monsters = []Monster{
 		Dmg:   3,
 	},
 	{
-		Name: "skeleton",
-		Hp: 12,
+		Name:  "skeleton",
+		Hp:    12,
 		Armor: 1,
-		Dmg: 4,
+		Dmg:   4,
 	},
 }
-
