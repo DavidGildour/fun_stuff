@@ -2,11 +2,13 @@ package data
 
 import (
 	"fmt"
-	"github.com/boltdb/bolt"
 	"strings"
+
+	"github.com/boltdb/bolt"
 )
 
 const STOREDIR = "./data/stores/"
+
 var (
 	places = StoreInfo{
 		Name:   "places",
@@ -23,7 +25,7 @@ var (
 		Path:   STOREDIR + "monsters.db",
 		Fields: []string{"name", "dmg", "armor", "hp"},
 	}
-	characters  = StoreInfo{
+	characters = StoreInfo{
 		Name:   "characters",
 		Path:   STOREDIR + "characters.db",
 		Fields: []string{"adj", "name", "base_dmg", "base_armor", "deity", "base_hp"},
@@ -31,7 +33,7 @@ var (
 )
 
 func initStore(store StoreInfo) error {
-	db, err := bolt.Open(store.Path, 0600, &bolt.Options{Timeout:1000})
+	db, err := bolt.Open(store.Path, 0600, &bolt.Options{Timeout: 1000})
 	if err != nil {
 		return err
 	}
