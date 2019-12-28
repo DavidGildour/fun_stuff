@@ -30,7 +30,6 @@ type (
 		Attack(*monsters.Monster)
 		Armor() int64
 		Dmg() int64
-		Fight(*monsters.Monster)
 		Equip(items.Item)
 	}
 )
@@ -68,19 +67,6 @@ func (c *genericCharacter) Equipment() []items.Item {
 // Equip is a method for equipping new item
 func (c *genericCharacter) Equip(item items.Item) {
 	c.equipment = append(c.equipment, item)
-}
-
-// Fight is a method for fighting a monster
-func (c *genericCharacter) Fight(m *monsters.Monster) {
-	fmt.Printf("%s is fighting a filthy %s! The battle unravels...\n", c.Name(), m.Name)
-	for c.hp > 0 && m.Hp > 0 {
-		c.Attack(m)
-	}
-	if c.hp <= 0 {
-		fmt.Printf("By the gods! A %s %s has been slain by the filthy %s!\n", c._adj, c.Name(), m.Name)
-	} else {
-		fmt.Printf("Praise the %s! A filthy %s perishes!\n", c._deity, m.Name)
-	}
 }
 
 // Armor is a method for summing up and returning the charater armor based on ever equipmnt it has.

@@ -17,11 +17,16 @@ func SetupGame() {
 	player = prof(name)
 	rand := utils.GetRand()
 	rarity := items.Rarity[rand.Intn(len(items.Rarity))]
-	player.Equip(items.Sword(rarity))
+	PlayerEquipItem(items.Sword(rarity))
 	view.PrintPlayerInfo(player)
 }
 
+func PlayerEquipItem(i items.Item) {
+	player.Equip(i)
+	view.EquipInfo(player.Name(), i)
+}
+
 func FightRandomMonster() {
-	player.Fight(monsters.RandomMonster())
+	Fight(player, monsters.RandomMonster())
 	view.PrintPlayerInfo(player)
 }
