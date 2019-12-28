@@ -6,6 +6,7 @@ import (
 	"fun_stuff/models/characters"
 	"os"
 	"regexp"
+	"strconv"
 	"strings"
 )
 
@@ -27,6 +28,17 @@ func IsProperName(s string) bool {
 func isProperProf(s string) bool {
 	_, ok := characters.Professions[s]
 	return ok
+}
+
+func IsProperChoice(s string, choicesNum int) bool {
+	if !regexp.MustCompile(`^\d+$`).MatchString(s) {
+		return false
+	}
+	num, _ := strconv.Atoi(s)
+	if num > choicesNum || num < 1 {
+		return false
+	}
+	return true
 }
 
 func GetUserInput(prompt, err string, validator func(string) bool) string {

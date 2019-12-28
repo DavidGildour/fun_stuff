@@ -3,9 +3,8 @@ package view
 import (
 	"bufio"
 	"fmt"
+	"fun_stuff/utils"
 	"os"
-	"regexp"
-	"strconv"
 )
 
 const HEADER string = "\n====== +++++++ =======\n"
@@ -28,21 +27,11 @@ func GetPlayerActionChoice(choices []string) string {
 	for i, choice := range choices {
 		PrettyPrint(fmt.Sprintf("%s%d.) %s", INDENT, i+1, choice), true, false)
 	}
-	var validator = func(s string) bool {
-		if !regexp.MustCompile(`^\d+$`).MatchString(s) {
-			return false
-		}
-		num, _ := strconv.Atoi(s)
-		if num > len(choices) || num < 1 {
-			return false
-		}
-		return true
-	}
 	for {
 		fmt.Print(">> ")
 		scanner.Scan()
 		input := scanner.Text()
-		if validator(input) {
+		if utils.IsProperChoice(input, len(choices)) {
 			return input
 		}
 		fmt.Println("Wrong number, try again.")
